@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Varela+Round&family=Vibur&display=swap');
+
+
+:root{
+    --clr-neon:hsl(317 100% 54%);
+    --clr-pneon:#f09;
+    --clr-bg:hsl(323 21% 16%);
+    --font-top: 'Balsamiq Sans', cursive;
+    --font-x: 'Varela Round', sans-serif;
+    --font-cursive: 'Vibur', cursive;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--clr-bg);
+}
+
+h1{
+    font-size: 3rem;
+    font-family: var(--font-top);
+    margin: 1em 1em 1.5em 1em;
+    padding: 0.25em 1em;
+    color: var(--clr-neon);
+    border: var(--clr-neon) .125em solid;
+    border-radius: 0.2em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100%/0.3),
+        0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon),
+        0 0 0.5em 0 var(--clr-neon);
+    
+    position: relative;
+}
+h1::before{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.8;
+}
+h1::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+    transition: opacity 100ms linear;
+}
+h1:hover{
+    background-color: var(--clr-neon);
+    color: var(--clr-bg);
+    text-shadow: none;
+}
+h1:hover::after,
+h1:hover::before{
+    opacity: 1;
+}
+@media (max-width: 900) {
+    h1{
+        font-size: 0.4rem;
+    }
+}
+
+
+
+.neonText {
+    color: #fde6ff;
+    text-shadow: 0 0 0.5em var(--clr-pneon);
+}
+p{
+    font-size: 2rem;
+    font-family: var(--font-cursive);
+}
+
+.board-el{
+    margin: 0.5em;
+    padding: 0.8em;
+    background-color: hsl(323 21% 19%);
+    width: min(80%, 25rem);
+    aspect-ratio: 1 / 1;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    border-radius: 0.1em;
+}
+.tile{
+    font-size: xx-large;
+    font-family: var(--font-x);
+    width: 100%;
+    aspect-ratio: 1/1;
+    
+    background-color: hsl(317 100% 18%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .05em;
+    box-shadow: inset 0 0 0.1em 0 var(--clr-neon),
+        0 0 0.1em 0 var(--clr-neon);
+}
+
+.button{
+    width:  min(80%, 20rem);
+    display: flex;
+}
+button{
+    margin: 0em 0.5em;
+    width:  100%;
+    height: 3rem;
+}
